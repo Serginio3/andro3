@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'andro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db',
-        'USER': 'andro',
-        'PASSWORD': 'fghj4567',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'andro',
+        'USER': 'andro1',
+        'PASSWORD': 'andro-shop',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

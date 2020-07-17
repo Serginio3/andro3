@@ -129,6 +129,8 @@ STATICFILES_DIRS = (
   os.path.join(BASE_DIR, "static", "static_dev"),
 )
 
+CART_SESSION_ID = 'cart'
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static", "static_prod")
 

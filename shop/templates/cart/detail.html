@@ -4,58 +4,52 @@
 Your shopping cart
 {% endblock %}
 {% block content %}
-<h1 class="qwer">Your shopping cart</h1>
-<div class="parent_product">
-    <div class="product-detail">
-        <table class="cart">
-            <thead>
-            <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Unit price</th>
-                <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
+<h1 class="qwer">Замовлені товари</h1>
+<div class="product-detail1">
+    <table class="cart">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Товари</th>
+            <th>Кількість</th>
+            <th>Ціна за одиницю</th>
+            <th>Загальа ціна</th>
+        </tr>
+        </thead>
+        <tbody>
 
-            {% for item in cart %}
-            {% with product=item.product %}
+        {% for item in cart %}
+        {% with product=item.product %}
 
-            <tr>
-                <td>
-                    <a href="{{ product.get_absolute_url }}">
-                        <img class="image-detai" src="
+        <tr>
+            <td>
+                <a href="{{ product.get_absolute_url }}">
+                    <img class="image-detai w-10" src="
                                 {% if product.image %}
                                     {{ product.image.url }}
                                 {% else %}
                                     {% static 'img/no_image.png' %}
                                 {% endif %}">
-                    </a>
-                </td>
-                <td>{{ product.name }}</td>
-                <td>{{ item.quantity }}</td>
+                </a>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ item.quantity }}</td>
 
-                <td class="num">${{ item.price }}</td>
-                <td class="num">${{ item.total_price }}</td>
-            </tr>
+            <td class="num">${{ item.price }}</td>
+            <td class="num">${{ item.total_price }}</td>
+        </tr>
 
-            {% endwith %}
-            {% endfor %}
+        {% endwith %}
+        {% endfor %}
 
-            <tr class="total">
-                <td>Total</td>
-                <td colspan="4"></td>
-                <td class="num">${{ cart.get_total_price }}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+    <div class="text-center"><b>Загальна сума - {{ cart.get_total_price }}</b></div>
 </div>
-<p class="text-right">
-    <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
+<p class="text-center pt-5 h3"><b>
+    <a href="{% url 'shop:product_list' %}" class="button light m-5">Продовжити купівлю</a>
     <a href="{% url 'orders:order_create' %}" class="button">
-        Checkout
+        Зробити замовлення
     </a>
-</p>
+</b></p>
 {% endblock %}

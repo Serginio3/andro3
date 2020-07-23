@@ -4,8 +4,7 @@
 {% if category %}{{ category.title }}{% else %}Products{% endif %}
 {% endblock %}
 {% block content %}
-<div class="parent_product">
-    <div class="product-detail">
+    <div class="prod w-30">
         <img class="image-detail" src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png"
         %}{% endif %}">
         <div class="some_new">
@@ -20,5 +19,4 @@
             {{ product.description|linebreaks }}
         </div>
     </div>
-</div>
 {% endblock %}

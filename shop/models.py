@@ -5,9 +5,9 @@ from django.urls import reverse
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
-    # text = models.TextField(blank=True)
-    # meta_description = models.TextField(blank=True)
-    # mata_title = models.TextField(blank=True)
+    text = models.TextField(blank=True, default="")
+    meta_description = models.TextField(blank=True, default="")
+    mata_title = models.TextField(blank=True, default="")
 
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category',
@@ -34,9 +34,9 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    # text = models.TextField(blank=True)
-    # meta_description = models.TextField(blank=True)
-    # mata_title = models.TextField(blank=True)
+    text = models.TextField(blank=True, default="")
+    meta_description = models.TextField(blank=True, default="")
+    mata_title = models.TextField(blank=True, default="")
 
     def get_absolute_url(self):
         return reverse('shop:product_detail',

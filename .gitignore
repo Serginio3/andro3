@@ -1,1 +1,5 @@
 andro/secret_key.txt
+db.sqlite3
+andro/settings.py
+static/media/*
+shop/migrations/*
